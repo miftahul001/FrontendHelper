@@ -135,6 +135,7 @@ const m={
 				loadChild(a.h,c)
 			})
 		},
+		a=>{ m.e[4].innerHTML='';m.e[5].innerHTML='';const b=JSON.parse(a.data);m.c[b.a](b) },
 	],
 	d:{
 		div: {a:'DIV', b:{}, c:'width:100px;height:100px;box-shadow:0 0 1px 1px rgba(0,0,0,.1);',f:1},
@@ -256,12 +257,7 @@ const m={
 	
 })()
 
-window.addEventListener('message', a=>{
-	m.e[4].innerHTML=''
-	m.e[5].innerHTML=''
-	const b=JSON.parse(a.data)
-	m.c[b.a](b)
-})
+window.addEventListener('message', m.c[5])
 return m
 }
 addEventListener('load',initApp)
