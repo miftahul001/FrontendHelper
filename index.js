@@ -142,6 +142,9 @@ const m={
 		span: {a:'SPAN', b:{}, c:'', d:'span'},
 		button: {a:'BUTTON', b:{}, c:'', d:'button'},
 		input1: {a:'INPUT', b:{type:'text'}, c:''},
+		select: {a:'SELECT', b:{},c:'width:100px;',f:1},
+		option: {a:'OPTION', b:{},c:''},
+		img: {a:'IMG', b:{},c:'width:100px;height:100px;'},
 	},
 	e:[],
 };
