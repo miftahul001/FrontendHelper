@@ -141,6 +141,7 @@ const m={
 				b.readAsText(a.target.files[0])
 			}}}).click()
 		},
+		a=>{ const b=JSON.parse(a.data);m.c[b.a](b.b, b.c, b.d) },
 	],
 	log: el({a:'p', b:document.body, c:'log', d:{style:'position:fixed;bottom:64px;right:16px;'}}),
 	saveHTML: a=>{
@@ -161,6 +162,6 @@ addEventListener('load',()=>{((a,b,c)=>{b(a,b,c)})(document.body,(a,b,c)=>{c.for
 
 document.body.addEventListener('dragover', m.b[11])
 document.body.addEventListener('drop', m.b[12])
-window.addEventListener('message', a=>{ const b=JSON.parse(a.data);m.c[b.a](b.b, b.c, b.d) })
+window.addEventListener('message', m.c[13])
 return m
 })
