@@ -181,6 +181,7 @@ const m={
 	
 	(()=>{
 		m.e[2]=el({a:'div',b:m.b[9](['structure',230,window.innerWidth-520])})
+		m.e[2].parentElement.style.height='360px'
 		document.body.appendChild(m.e[2].parentElement.parentElement)
 		m.e[2].appendChild(m.a[0].a)
 	})();
