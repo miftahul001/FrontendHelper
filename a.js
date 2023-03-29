@@ -150,6 +150,9 @@ var b=`<!DOCTYPE html><html><head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="application builder" content="wysiwyg application builder" />
 <title>m</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+</style>
 <script src="https://miftahul001.github.io/m/m.js"></script>
 <script>
 const m={}
