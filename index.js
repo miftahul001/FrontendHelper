@@ -257,7 +257,7 @@ const m={
 	
 })()
 
-window.addEventListener('message', m.c[5])
+window.addEventListener('message', m.c[4])
 return m
 }
 addEventListener('load',initApp)
