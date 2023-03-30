@@ -53,8 +53,8 @@ const m={
 			m.a[m.b[0]].a.children[1].style.background='#87CEFA'
 			m.c[10]({a:0,b:m.b[0]})
 		},
-		a=>{ a.stopPropagation(); m.c[10]({a:1,b:a.target.textContent}) },//m.e[0].contentWindow.postMessage(JSON.stringify({a:1,b:a.target.textContent})) },
-		a=>{ a.stopPropagation(); m.c[10]({a:2,b:[m.e[3].children[0].value,m.e[3].children[1].value]}) },// m.e[0].contentWindow.postMessage(JSON.stringify({a:2,b:[m.e[3].children[0].value,m.e[3].children[1].value]})) },
+		a=>{ a.stopPropagation(); m.c[10]({a:1,b:a.target.textContent}) },
+		a=>{ a.stopPropagation(); m.c[10]({a:2,b:[m.e[3].children[0].value,m.e[3].children[1].value]}) },
 		a=>{
 			const b=m.e[4].children.length-1
 			const c={}
