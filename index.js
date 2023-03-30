@@ -86,16 +86,28 @@ const m={
 			}
 			m.c[10]({a:15,b:c})
 		},
+		a=>{
+			a.stopPropagation()
+			a.preventDefault()
+			const b=el({a:'div',b:el({a:'div',b:document.body,d:{style:'position:fixed;top:0;left:0;width:100vw;height:100vh;'},e:{click:a=>{a.stopPropagation();document.body.removeChild(a.target)}}}),d:{style:`position:fixed;top:${a.clientY}px;left:${a.clientX}px;background:rgba(255,255,255,.5);border-radius:5px;box-shadow:0 0 7px 2px rgba(0,0,0,.1);padding:5px;display:flex;flex-direction:column;gap:5px;`},e:{click:a=>{a.stopPropagation()}}})
+			const c={style:'border-radius:3px;padding:3px 5px;border:none;','data-dynamic-app-idx':`${a.target.parentElement.getAttribute('data-dynamic-app-idx')}`}
+			el({a:'button',b:b,c:'remove',d:c,e:{click:a=>{a.stopPropagation();document.body.removeChild(a.target.parentElement.parentElement);m.c[5](a.target.getAttribute('data-dynamic-app-idx'))}}})
+			//console.log(a.target.parentElement.getAttribute('data-dynamic-app-idx'))
+		}
 	],
 	c:[
 		a=>{
+			m.e[4].innerHTML=''
+			m.e[5].innerHTML=''
 			a.b&&a.b.split(';').slice(0,-1).map(a=>a.split(':').map(a=>a.trim())).forEach(a=>{
 				el({a:'input',b:m.e[5],d:{type:'text',size:a[0].length,value:a[0]},e:{
+					click:a=>{a.stopPropagation()},
 					input:a=>{a.target.size=a.target.value.length},
 					blur:a=>{ m.b[14](a) },
 				}})
-				el({a:'input',b:m.e[5],d:{type:'text',value:a[1]},e:{ input:a=>{ m.b[14](a) } }})
+				el({a:'input',b:m.e[5],d:{type:'text',value:a[1]},e:{ click:a=>{a.stopPropagation()}, input:a=>{ m.b[14](a) } }})
 				el({a:'button',b:m.e[5],c:'-',e:{click:a=>{
+					a.stopPropagation(),
 					a.target.parentElement.removeChild(a.target.previousElementSibling)
 					a.target.parentElement.removeChild(a.target.previousElementSibling)
 					a.target.parentElement.removeChild(a.target)
@@ -104,11 +116,13 @@ const m={
 			})
 			a.c&&Object.keys(a.c).forEach(b=>{
 				el({a:'input',b:m.e[4],d:{type:'text',size:b.length,value:b},e:{
+					click:a=>{a.stopPropagation()},
 					input:a=>{a.target.size=a.target.value.length},
 					blur:a=>{ m.b[13](a) },
 				}})
-				el({a:'input',b:m.e[4],d:{type:'text',value:a.c[b]},e:{ input:a=>{ m.b[13](a) } }})
+				el({a:'input',b:m.e[4],d:{type:'text',value:a.c[b]},e:{ click:a=>{a.stopPropagation()}, input:a=>{ m.b[13](a) } }})
 				el({a:'button',b:m.e[4],c:'-',e:{click:a=>{
+					a.stopPropagation()
 					a.target.parentElement.removeChild(a.target.previousElementSibling)
 					a.target.parentElement.removeChild(a.target.previousElementSibling)
 					a.target.parentElement.removeChild(a.target)
@@ -123,9 +137,32 @@ const m={
 			if (a.e) {
 				m.b[0]=a.e
 				m.a[m.b[0]].a.children[1].style.background='#87CEFA'
+				const b=a=>{
+					if (a.parentElement.parentElement==m.a[0].a) return
+					if (a.parentElement.style.display=='none') {
+						a.parentElement.style.display='block'
+						a.parentElement.previousElementSibling.previousElementSibling.textContent="\u25BE"
+					}
+					b(a.parentElement.parentElement)
+				}
+				b(m.a[m.b[0]].a)
+				m.a[m.b[0]].a.scrollIntoView()
 			} else m.b[0]=0
 		},
-		a=>{ m.a.push({a:el({a:'div',b:el({a:'div',b:el({a:'div',b:el({a:'div',b:m.a[a.b].a.children[2],d:{'data-dynamic-app-idx':a.c,style:'display:grid;grid-template-columns:7px auto;gap:1px 5px;'}}),c:"\u25B8"}).parentElement,c:a.label,d:{style:'min-width:11px;padding:1px 5px;border-radius:5px;',draggable:true},e:{dblclick:a=>{a.target.contentEditable=true},blur:a=>{a.target.contentEditable=false},input:m.b[11],click:m.b[10],dragstart:a=>{m.b[1]=a.target.parentElement},dragover:a=>{a.preventDefault();a.stopPropagation()},drop:m.b[15]}}).parentElement,d:{style:'grid-column:2/span 1;'}}).parentElement}) },
+		a=>{ m.a.push({a:el({a:'div',b:el({a:'div',b:el({a:'div',b:el({a:'div',b:m.a[a.b].a.children[2],d:{'data-dynamic-app-idx':a.c,style:'display:grid;grid-template-columns:7px auto;gap:1px 5px;'}}),c:"\u25BE",e:{click:a=>{a.stopPropagation();
+				if (a.target.textContent=="\u25BE") {
+					a.target.textContent="\u25B8"
+					a.target.nextElementSibling.nextElementSibling.style.display='none'
+				} else {
+					a.target.textContent="\u25BE"
+					a.target.nextElementSibling.nextElementSibling.style.display='block'
+				}
+				if (m.a[m.b[0]].a==a.target.parentElement) return
+				m.b[0]>0&&(m.a[m.b[0]].a.children[1].style.background='rgba(0,0,0,0)')
+				m.b[0]=a.target.parentElement.getAttribute('data-dynamic-app-idx')
+				m.a[m.b[0]].a.children[1].style.background='#87CEFA'
+				m.c[10]({a:0,b:m.b[0]})
+			}}}).parentElement,c:a.label,d:{style:'min-width:11px;padding:1px 5px;border-radius:5px;',draggable:true},e:{dblclick:a=>{a.target.contentEditable=true},blur:a=>{a.target.contentEditable=false},input:m.b[11],click:m.b[10],dragstart:a=>{a.stopPropagation();m.b[1]=a.target.parentElement},dragover:a=>{a.preventDefault();a.stopPropagation()},drop:m.b[15],contextmenu:m.b[18]}}).parentElement,d:{style:'grid-column:2/span 1;'}}).parentElement}) },
 		a=>{ m.a[a.b].a.children[2].appendChild(m.a[a.c].a) },
 		a=>{
 			const loadChild=(a,b)=>{
@@ -143,8 +180,19 @@ const m={
 				loadChild(a.h,c)
 			})
 		},
-		a=>{ m.e[4].innerHTML='';m.e[5].innerHTML='';const b=JSON.parse(a.data);m.c[b.a](b) },
-		,,,,,
+		a=>{ const b=JSON.parse(a.data);m.c[b.a](b) },
+		a=>{
+			const b=a=>{
+				[...a.children[2].children].forEach(a=>{b(a)})
+				const c=a.getAttribute('data-dynamic-app-idx')
+				c==m.b[0]&&m.c[0]({a:0})
+				a.parentElement.removeChild(a)
+				delete m.a[c]
+			}
+			b(m.a[a].a)
+			m.c[10]({a:6,b:a})
+		},
+		,,,,
 		a=>{ m.e[0].contentWindow.postMessage(JSON.stringify(a)) },
 	],
 	d:{

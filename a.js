@@ -28,7 +28,7 @@ const m={
 			a.stopPropagation()
 			const b=a.dataTransfer?a.dataTransfer.getData('a'):undefined
 			const c=a.target.getBoundingClientRect()
-			m.log.textContent = `over  X: ${a.clientX}   Y: ${a.clientY}   top: ${c.top}  left: ${c.left}  bottom: ${c.top}  right: ${c.right}  ${b}`
+			//m.log.textContent = `over  X: ${a.clientX}   Y: ${a.clientY}   top: ${c.top}  left: ${c.left}  bottom: ${c.top}  right: ${c.right}  ${b}`
 		},
 		a=>{
 			a.preventDefault()
@@ -48,7 +48,7 @@ const m={
 				}
 			}
 			m.b[3] = null
-			m.log.textContent = `drop  X: ${a.clientX}   Y: ${a.clientY}`
+			//m.log.textContent = `drop  X: ${a.clientX}   Y: ${a.clientY}`
 		},
 		a=>{ a.stopPropagation(); m.b[10](a.target) },
 	],
@@ -83,7 +83,15 @@ const m={
 			})
 		},
 		(a,b,c)=>{ m.a[a].a.insertBefore(m.a[b].a,m.a[c].a) },
-		,,,,
+		a=>{
+			const b=a=>{
+				[...a.children].forEach(a=>{b(a)})
+				const c=a.getAttribute('data-dynamic-app-idx')
+				a.parentElement.removeChild(a)
+				c&&(delete m.a[c])
+			}
+			b(m.a[a].a)
+		},,,,
 		a=>{
 			const c=m.b[0]
 			m.b[10]()
@@ -142,6 +150,8 @@ const m={
 			}}}).click()
 		},
 		a=>{ const b=JSON.parse(a.data);m.c[b.a](b.b, b.c, b.d) },
+		a=>{ m.a[m.b[1]].g=a },
+		a=>{ m.a[m.b[1]].e=a;console.log(m) },
 	],
 	log: el({a:'p', b:document.body, c:'log', d:{style:'position:fixed;bottom:64px;right:16px;'}}),
 	saveHTML: a=>{
