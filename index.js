@@ -51,33 +51,41 @@ const m={
 			m.b[0]>0&&(m.a[m.b[0]].a.children[1].style.background='rgba(0,0,0,0)')
 			m.b[0]=a.target.parentElement.getAttribute('data-dynamic-app-idx')
 			m.a[m.b[0]].a.children[1].style.background='#87CEFA'
-			m.e[0].contentWindow.postMessage(JSON.stringify({a:0,b:m.b[0]}))
+			m.c[10]({a:0,b:m.b[0]})
 		},
-		a=>{ m.e[0].contentWindow.postMessage(JSON.stringify({a:1,b:a.target.textContent})) },
-		a=>{ m.e[0].contentWindow.postMessage(JSON.stringify({a:2,b:[m.e[3].children[0].value,m.e[3].children[1].value]})) },
+		a=>{ a.stopPropagation(); m.c[10]({a:1,b:a.target.textContent}) },//m.e[0].contentWindow.postMessage(JSON.stringify({a:1,b:a.target.textContent})) },
+		a=>{ a.stopPropagation(); m.c[10]({a:2,b:[m.e[3].children[0].value,m.e[3].children[1].value]}) },// m.e[0].contentWindow.postMessage(JSON.stringify({a:2,b:[m.e[3].children[0].value,m.e[3].children[1].value]})) },
 		a=>{
 			const b=m.e[4].children.length-1
 			const c={}
 			for (var i=0; i<b; i+=3) {
 				m.e[4].children[i].value.trim()!=''&&(c[m.e[4].children[i].value.trim()]=m.e[4].children[i+1].value)
 			}
-			m.e[0].contentWindow.postMessage(JSON.stringify({a:4,b:c}))
+			m.c[10]({a:4,b:c})
 		},
 		a=>{
 			const b=m.e[5].children.length-1
 			var c=''
 			for (var i=0; i<b; i+=3) c+=m.e[5].children[i].value+':'+m.e[5].children[i+1].value+';'
-			m.e[0].contentWindow.postMessage(JSON.stringify({a:3,b:c}))
+			m.c[10]({a:3,b:c})
 		},
 		a=>{
 			a.preventDefault()
 			a.stopPropagation()
 			if (!m.b[1]) return
 			a.target.parentElement.parentElement.insertBefore(m.b[1], a.target.parentElement)
-			m.e[0].contentWindow.postMessage(JSON.stringify({a:5, b:a.target.parentElement.parentElement.parentElement.getAttribute('data-dynamic-app-idx'), c:m.b[1].getAttribute('data-dynamic-app-idx'), d:a.target.parentElement.getAttribute('data-dynamic-app-idx')}))
+			m.c[10]({a:5, b:a.target.parentElement.parentElement.parentElement.getAttribute('data-dynamic-app-idx'), c:m.b[1].getAttribute('data-dynamic-app-idx'), d:a.target.parentElement.getAttribute('data-dynamic-app-idx')})
 			m.b[1] = null
 		},
-		a=>{ a.dataTransfer.setData('a', a.target.getAttribute('data-dynamic-app-a')) },
+		a=>{ a.stopPropagation(); a.dataTransfer.setData('a', a.target.getAttribute('data-dynamic-app-a')) },
+		a=>{
+			const b=m.e[7].children.length-1
+			const c=[]
+			for (var i=0; i<b; i+=3) {
+				m.e[7].children[i].value.trim()!=''&&c.push([m.e[7].children[i].value.trim(),m.e[7].children[i+1].value])
+			}
+			m.c[10]({a:15,b:c})
+		},
 	],
 	c:[
 		a=>{
@@ -136,6 +144,8 @@ const m={
 			})
 		},
 		a=>{ m.e[4].innerHTML='';m.e[5].innerHTML='';const b=JSON.parse(a.data);m.c[b.a](b) },
+		,,,,,
+		a=>{ m.e[0].contentWindow.postMessage(JSON.stringify(a)) },
 	],
 	d:{
 		div: {a:'DIV', b:{}, c:'width:100px;height:100px;box-shadow:0 0 1px 1px rgba(0,0,0,.1);',f:1},
@@ -157,16 +167,16 @@ const m={
 		document.body.appendChild(a.parentElement.parentElement)
 		a.parentElement.parentElement.removeChild(a.parentElement.parentElement.children[2])
 		const b={style:'border-radius:3px;padding:3px 5px;border:none;'}
-		el({a:'button',b:a,c:'Component',d:b, e:{click:a=>{ m.g.a.parentElement==document.body?document.body.removeChild(m.g.a):document.body.appendChild(m.g.a) }}})
-		el({a:'button',b:a,c:'Structure',d:b, e:{click:a=>{ m.e[2].parentElement.parentElement.parentElement==document.body?document.body.removeChild(m.e[2].parentElement.parentElement):document.body.appendChild(m.e[2].parentElement.parentElement) }}})
-		el({a:'button',b:a,c:'Inner',d:b, e:{click:a=>{ m.e[3].parentElement.parentElement.parentElement==document.body?document.body.removeChild(m.e[3].parentElement.parentElement):document.body.appendChild(m.e[3].parentElement.parentElement) }}})
-		el({a:'button',b:a,c:'Attribute',d:b, e:{click:a=>{ m.e[4].parentElement.parentElement.parentElement.parentElement==document.body?document.body.removeChild(m.e[4].parentElement.parentElement.parentElement):document.body.appendChild(m.e[4].parentElement.parentElement.parentElement) }}})
-		el({a:'button',b:a,c:'Style',d:b, e:{click:a=>{ m.e[5].parentElement.parentElement.parentElement.parentElement==document.body?document.body.removeChild(m.e[5].parentElement.parentElement.parentElement):document.body.appendChild(m.e[5].parentElement.parentElement.parentElement) }}})
-		el({a:'button',b:a,c:'JS Binding',d:b, e:{click:a=>{ m.e[6].parentElement.parentElement.parentElement==document.body?document.body.removeChild(m.e[6].parentElement.parentElement):document.body.appendChild(m.e[6].parentElement.parentElement) }}})
-		el({a:'button',b:a,c:'events',d:b, e:{click:a=>{ m.e[7].parentElement.parentElement.parentElement.parentElement==document.body?document.body.removeChild(m.e[7].parentElement.parentElement.parentElement):document.body.appendChild(m.e[7].parentElement.parentElement.parentElement) }}})
-		el({a:'button',b:a,c:'Save template',d:b, e:{click:a=>{ m.e[0].contentWindow.postMessage(JSON.stringify({a:10})) }}})
-		el({a:'button',b:a,c:'Load template',d:b, e:{click:a=>{ m.e[0].contentWindow.postMessage(JSON.stringify({a:12})) }}})
-		el({a:'button',b:a,c:'SaveAsHTML',d:b, e:{click:a=>{ m.e[0].contentWindow.postMessage(JSON.stringify({a:11})) }}})
+		el({a:'button',b:a,c:'Component',d:b, e:{click:a=>{ a.stopPropagation(); m.g.a.parentElement==document.body?document.body.removeChild(m.g.a):document.body.appendChild(m.g.a) }}})
+		el({a:'button',b:a,c:'Structure',d:b, e:{click:a=>{ a.stopPropagation(); m.e[2].parentElement.parentElement.parentElement==document.body?document.body.removeChild(m.e[2].parentElement.parentElement):document.body.appendChild(m.e[2].parentElement.parentElement) }}})
+		el({a:'button',b:a,c:'Inner',d:b, e:{click:a=>{ a.stopPropagation(); m.e[3].parentElement.parentElement.parentElement==document.body?document.body.removeChild(m.e[3].parentElement.parentElement):document.body.appendChild(m.e[3].parentElement.parentElement) }}})
+		el({a:'button',b:a,c:'Attribute',d:b, e:{click:a=>{ a.stopPropagation(); m.e[4].parentElement.parentElement.parentElement.parentElement==document.body?document.body.removeChild(m.e[4].parentElement.parentElement.parentElement):document.body.appendChild(m.e[4].parentElement.parentElement.parentElement) }}})
+		el({a:'button',b:a,c:'Style',d:b, e:{click:a=>{ a.stopPropagation(); m.e[5].parentElement.parentElement.parentElement.parentElement==document.body?document.body.removeChild(m.e[5].parentElement.parentElement.parentElement):document.body.appendChild(m.e[5].parentElement.parentElement.parentElement) }}})
+		el({a:'button',b:a,c:'JS Binding',d:b, e:{click:a=>{ a.stopPropagation(); m.e[6].parentElement.parentElement.parentElement==document.body?document.body.removeChild(m.e[6].parentElement.parentElement):document.body.appendChild(m.e[6].parentElement.parentElement) }}})
+		el({a:'button',b:a,c:'events',d:b, e:{click:a=>{ a.stopPropagation(); m.e[7].parentElement.parentElement.parentElement.parentElement==document.body?document.body.removeChild(m.e[7].parentElement.parentElement.parentElement):document.body.appendChild(m.e[7].parentElement.parentElement.parentElement) }}})
+		el({a:'button',b:a,c:'Save template',d:b, e:{click:a=>{ a.stopPropagation(); m.c[10]({a:10}) }}})
+		el({a:'button',b:a,c:'Load template',d:b, e:{click:a=>{ a.stopPropagation(); m.c[10]({a:12}) }}})
+		el({a:'button',b:a,c:'SaveAsHTML',d:b, e:{click:a=>{ a.stopPropagation(); m.c[10]({a:11}) }}})
 		a.parentElement.style='background:rgba(255,255,255,.7);border-radius:5px;padding:3px;margin-top:7px;'
 	})();
 	
@@ -189,8 +199,8 @@ const m={
 	(()=>{
 		m.e[3]=el({a:'div',b:m.b[9](['inner',16,window.innerWidth-300]),d:{style:'display:flex;gap:3px;'}})
 		document.body.appendChild(m.e[3].parentElement.parentElement)
-		el({a:'option',b:el({a:'option',b:el({a:'option',b:el({a:'option',b:el({a:'select',b:m.e[3],d:{style:'padding-left:3px;'},e:{change:m.b[12]}}),c:'none',d:{value:''}}).parentElement,c:'textContent',d:{value:'textContent'}}).parentElement,c:'innerText',d:{value:'innerText'}}).parentElement,c:'innerHTML',d:{value:'innerHTML'}})
-		el({a:'input',b:m.e[3],d:{type:'text',style:'flex:1;'},e:{input:m.b[12]}})
+		el({a:'option',b:el({a:'option',b:el({a:'option',b:el({a:'option',b:el({a:'select',b:m.e[3],d:{style:'padding-left:3px;'},e:{click:a=>{a.stopPropagation()},change:m.b[12]}}),c:'none',d:{value:''}}).parentElement,c:'textContent',d:{value:'textContent'}}).parentElement,c:'innerText',d:{value:'innerText'}}).parentElement,c:'innerHTML',d:{value:'innerHTML'}})
+		el({a:'input',b:m.e[3],d:{type:'text',style:'flex:1;'},e:{click:a=>{a.stopPropagation()},input:m.b[12]}})
 		m.e[3].parentElement.style='background:rgba(255,255,255,.7);border-radius:5px;padding:3px;margin-top:7px;'
 	})();
 	
@@ -198,14 +208,18 @@ const m={
 		m.e[4]=el({a:'div',b:el({a:'div',b:m.b[9](['attributes',100,window.innerWidth-300])}),d:{style:'display:grid;grid-template-columns:fit-content(33px) auto 11px;gap:1px 3px;'}})
 		document.body.appendChild(m.e[4].parentElement.parentElement.parentElement)
 		el({a:'button', b:m.e[4].parentElement, c:'+', e:{click:a=>{
+			a.stopPropagation()
 			el({a:'input',b:m.e[4],d:{type:'text',size:1},e:{
+				click:a=>{a.stopPropagation()},
 				input:a=>{a.target.size=a.target.value.length},
 				blur:a=>{ m.b[13](a) },
 			}})
 			el({a:'input',b:m.e[4],d:{type:'text'},e:{
+				click:a=>{a.stopPropagation()},
 				input:a=>{ m.b[13](a) }
 			}})
 			el({a:'button',b:m.e[4],c:'-',e:{click:a=>{
+				a.stopPropagation()
 				a.target.parentElement.removeChild(a.target.previousElementSibling)
 				a.target.parentElement.removeChild(a.target.previousElementSibling)
 				a.target.parentElement.removeChild(a.target)
@@ -219,12 +233,15 @@ const m={
 		m.e[5]=el({a:'div',b:el({a:'div',b:m.b[9](['style',240,window.innerWidth-300])}),d:{style:'display:grid;grid-template-columns:fit-content(33px) auto 11px;gap:1px 3px;'}})
 		document.body.appendChild(m.e[5].parentElement.parentElement.parentElement)
 		el({a:'button', b:m.e[5].parentElement, c:'+', e:{click:a=>{
+			a.stopPropagation()
 			el({a:'input',b:m.e[5],d:{type:'text',size:1},e:{
+				click:a=>{a.stopPropagation()},
 				input:a=>{a.target.size=a.target.value.length},
 				blur:a=>{ m.b[14](a) },
 			}})
-			el({a:'input',b:m.e[5],d:{type:'text'},e:{ input:a=>{ m.b[14](a) } }})
+			el({a:'input',b:m.e[5],d:{type:'text'},e:{ click:a=>{a.stopPropagation()}, input:a=>{ m.b[14](a) } }})
 			el({a:'button',b:m.e[5],c:'-',e:{click:a=>{
+				a.stopPropagation()
 				a.target.parentElement.removeChild(a.target.previousElementSibling)
 				a.target.parentElement.removeChild(a.target.previousElementSibling)
 				a.target.parentElement.removeChild(a.target)
@@ -237,7 +254,7 @@ const m={
 		m.e[6]=el({a:'div',b:m.b[9](['JS Binding',380,window.innerWidth-300]),d:{style:'display:flex;gap:3px;'}})
 		document.body.appendChild(m.e[6].parentElement.parentElement)
 		el({a:'div',b:m.e[6],c:'name',d:{style:'padding-left:1 5px;'}})
-		el({a:'input',b:m.e[6],d:{type:'text',style:'flex:1;'}})
+		el({a:'input',b:m.e[6],d:{type:'text',style:'flex:1;'}, e:{click:a=>{a.stopPropagation()},input:a=>{m.c[10]({a:14,b:a.target.value})}}})
 		m.e[6].parentElement.style='background:rgba(255,255,255,.7);border-radius:5px;padding:3px;margin-top:7px;'
 	})();
 	
@@ -245,16 +262,19 @@ const m={
 		m.e[7]=el({a:'div',b:el({a:'div',b:m.b[9](['events',470,window.innerWidth-300])}),d:{style:'display:grid;grid-template-columns:fit-content(33px) auto 11px;gap:1px 3px;align-items: start;'}})
 		document.body.appendChild(m.e[7].parentElement.parentElement.parentElement)
 		el({a:'button', b:m.e[7].parentElement, c:'+', e:{click:a=>{
+			a.stopPropagation()
 			el({a:'input',b:m.e[7],d:{type:'text',size:1},e:{
+				click:a=>{a.stopPropagation()},
 				input:a=>{a.target.size=a.target.value.length},
-				//blur:a=>{ m.b[14](a) },
+				blur:a=>{ m.b[17](a) },
 			}})
-			el({a:'textarea',b:m.e[7],d:{},e:{ input:a=>{  } }})
+			el({a:'textarea',b:m.e[7],d:{},e:{ click:a=>{a.stopPropagation()}, input:a=>{ m.b[17](a) } }})
 			el({a:'button',b:m.e[7],c:'-',e:{click:a=>{
+				a.stopPropagation()
 				a.target.parentElement.removeChild(a.target.previousElementSibling)
 				a.target.parentElement.removeChild(a.target.previousElementSibling)
 				a.target.parentElement.removeChild(a.target)
-				//m.b[14](a)
+				m.b[17](a)
 			}}})
 		}}})
 	})();
