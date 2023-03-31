@@ -147,7 +147,14 @@ const m={
 				}
 				b(m.a[m.b[0]].a)
 				m.a[m.b[0]].a.scrollIntoView()
-			} else m.b[0]=0
+			} else m.b[0]=0;
+			(a=>{
+				m.e[3].style.pointerEvents=a
+				m.e[4].parentElement.style.pointerEvents=a
+				m.e[5].parentElement.style.pointerEvents=a
+				m.e[6].style.pointerEvents=a
+				m.e[7].parentElement.style.pointerEvents=a
+			})(m.b[0]==0?'none':'auto')
 		},
 		a=>{ m.a.push({a:el({a:'div',b:el({a:'div',b:el({a:'div',b:el({a:'div',b:m.a[a.b].a.children[2],d:{'data-dynamic-app-idx':a.c,style:'display:grid;grid-template-columns:7px auto;gap:1px 5px;'}}),c:"\u25BE",e:{click:a=>{a.stopPropagation();
 				if (a.target.textContent=="\u25BE") {
@@ -256,7 +263,7 @@ const m={
 	})();
 	
 	(()=>{
-		m.e[3]=el({a:'div',b:m.b[9](['inner',16,window.innerWidth-300]),d:{style:'display:flex;gap:3px;'}})
+		m.e[3]=el({a:'div',b:m.b[9](['inner',16,window.innerWidth-300]),d:{style:'display:flex;gap:3px;pointer-events:none;'}})
 		document.body.appendChild(m.e[3].parentElement.parentElement)
 		el({a:'option',b:el({a:'option',b:el({a:'option',b:el({a:'option',b:el({a:'select',b:m.e[3],d:{style:'padding-left:3px;'},e:{click:a=>{a.stopPropagation()},change:m.b[12]}}),c:'none',d:{value:''}}).parentElement,c:'textContent',d:{value:'textContent'}}).parentElement,c:'innerText',d:{value:'innerText'}}).parentElement,c:'innerHTML',d:{value:'innerHTML'}})
 		el({a:'input',b:m.e[3],d:{type:'text',style:'flex:1;'},e:{click:a=>{a.stopPropagation()},input:m.b[12]}})
@@ -264,7 +271,7 @@ const m={
 	})();
 	
 	(()=>{
-		m.e[4]=el({a:'div',b:el({a:'div',b:m.b[9](['attributes',100,window.innerWidth-300])}),d:{style:'display:grid;grid-template-columns:fit-content(33px) auto 11px;gap:1px 3px;'}})
+		m.e[4]=el({a:'div',b:el({a:'div',b:m.b[9](['attributes',100,window.innerWidth-300]),d:{style:'pointer-events:none;'}}),d:{style:'display:grid;grid-template-columns:fit-content(33px) auto 11px;gap:1px 3px;'}})
 		document.body.appendChild(m.e[4].parentElement.parentElement.parentElement)
 		el({a:'button', b:m.e[4].parentElement, c:'+', e:{click:a=>{
 			a.stopPropagation()
@@ -289,7 +296,7 @@ const m={
 	})();
 	
 	(()=>{
-		m.e[5]=el({a:'div',b:el({a:'div',b:m.b[9](['style',240,window.innerWidth-300])}),d:{style:'display:grid;grid-template-columns:fit-content(33px) auto 11px;gap:1px 3px;'}})
+		m.e[5]=el({a:'div',b:el({a:'div',b:m.b[9](['style',240,window.innerWidth-300]),d:{style:'pointer-events:none;'}}),d:{style:'display:grid;grid-template-columns:fit-content(33px) auto 11px;gap:1px 3px;'}})
 		document.body.appendChild(m.e[5].parentElement.parentElement.parentElement)
 		el({a:'button', b:m.e[5].parentElement, c:'+', e:{click:a=>{
 			a.stopPropagation()
@@ -310,7 +317,7 @@ const m={
 	})();
 	
 	(()=>{
-		m.e[6]=el({a:'div',b:m.b[9](['JS Binding',380,window.innerWidth-300]),d:{style:'display:flex;gap:3px;'}})
+		m.e[6]=el({a:'div',b:m.b[9](['JS Binding',380,window.innerWidth-300]),d:{style:'display:flex;gap:3px;pointer-events:none;'}})
 		document.body.appendChild(m.e[6].parentElement.parentElement)
 		el({a:'div',b:m.e[6],c:'name',d:{style:'padding-left:1 5px;'}})
 		el({a:'input',b:m.e[6],d:{type:'text',style:'flex:1;'}, e:{click:a=>{a.stopPropagation()},input:a=>{m.c[10]({a:14,b:a.target.value})}}})
@@ -318,7 +325,7 @@ const m={
 	})();
 	
 	(()=>{
-		m.e[7]=el({a:'div',b:el({a:'div',b:m.b[9](['events',470,window.innerWidth-300])}),d:{style:'display:grid;grid-template-columns:fit-content(33px) auto 11px;gap:1px 3px;align-items: start;'}})
+		m.e[7]=el({a:'div',b:el({a:'div',b:m.b[9](['events',470,window.innerWidth-300]),d:{style:'pointer-events:none;'}}),d:{style:'display:grid;grid-template-columns:fit-content(33px) auto 11px;gap:1px 3px;align-items: start;'}})
 		document.body.appendChild(m.e[7].parentElement.parentElement.parentElement)
 		el({a:'button', b:m.e[7].parentElement, c:'+', e:{click:a=>{
 			a.stopPropagation()
