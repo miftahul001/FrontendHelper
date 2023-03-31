@@ -95,31 +95,25 @@ const m={
 		a=>{
 			const c=m.b[0]
 			m.b[10]()
-			const getChildrens=(a,b)=>{
-				a.forEach(a=>{
-					const c=m.a[a.getAttribute('data-dynamic-app-idx')]
-					b.push({a:a.tagName, b:c.b, c:a.style.cssText, d:c.d, f:c.f, g:c.label,h:[]})
-					getChildrens([...a.children],b[b.length-1].h)
+			el({a:'a',b:document.body,d:{download:'layout.json',href:URL.createObjectURL(new Blob([JSON.stringify((a=>{a.c(a);return a.b})({a:[...document.body.children].slice(1),b:[],c:a=>{
+				a.a.forEach(b=>{
+					const c=m.a[b.getAttribute('data-dynamic-app-idx')]
+					a.b.push({a:b.tagName, b:c.b, c:b.style.cssText, d:c.d, f:c.f, g:c.label,h:[]})
+					a.c({a:[...b.children],b:a.b[a.b.length-1].h,c:a.c})
 				})
-			}
-			const d=[]
-			getChildrens([...document.body.children].slice(1),d)
-			el({a:'a',b:document.body,d:{download:'layout.json',href:URL.createObjectURL(new Blob([JSON.stringify(d)], {type:'application/json'}))},e:{click:a=>{document.body.removeChild(a.target)}}}).click()
+			}}))], {type:'application/json'}))},e:{click:a=>{document.body.removeChild(a.target)}}}).click()
 			m.b[10](c)
 		},
 		a=>{
 			const c=m.b[0]
-			m.b[10]()
-			const getChildrens=(a,b)=>{
-				a.forEach(a=>{
-					const c=m.a[a.getAttribute('data-dynamic-app-idx')]
-					b.push({a:a.tagName, b:c.b, c:a.style.cssText, d:c.d, h:[]})
-					getChildrens([...a.children],b[b.length-1].h)
+			m.b[10]();
+			m.saveHTML(JSON.stringify((a=>{a.c(a);return a.b})({a:[...document.body.children].slice(1),b:[],c:a=>{
+				a.a.forEach(b=>{
+					const c=m.a[b.getAttribute('data-dynamic-app-idx')]
+					a.b.push({a:b.tagName, b:c.b, c:b.style.cssText, d:c.d, h:[]})
+					a.c({a:[...b.children],b:a.b[a.b.length-1].h,c:a.c})
 				})
-			}
-			const d=[]
-			getChildrens([...document.body.children].slice(1),d)
-			m.saveHTML(JSON.stringify(d))
+			}})))
 			m.b[10](c)
 		},
 		a=>{
@@ -129,21 +123,13 @@ const m={
 					m.b[10]()
 					m.a=[{a:document.body}]
 					document.body.innerHTML=''
-					document.body.appendChild(m.log)
-					const loadChild=(a,b)=>{
-						a.forEach(a=>{
-							const c = el({a:a.a, b:b, d:{...a.b,style:a.c||'', draggable:true,'data-dynamic-app-idx':m.a.length}, e:{click:m.b[13] ,drop:a.f?m.b[12]:()=>{}, dragstart:a=>{m.b[3]=a.target}}})
-							a.d[0]&&(c[a.d[0]]=a.d[1])
-							m.a.push({a:c,b:a.b,c:a.c,d:a.d,f:a.f,label:a.g})
-							loadChild(a.h,c)
-						})
-					}
-					JSON.parse(a.target.result).forEach(a=>{
-						const c = el({a:a.a, b:document.body, d:{...a.b,style:a.c||'', draggable:true,'data-dynamic-app-idx':m.a.length}, e:{click:m.b[13] ,drop:a.f?m.b[12]:()=>{}, dragstart:a=>{m.b[3]=a.target}}})
-						a.d[0]&&(c[a.d[0]]=a.d[1])
-						m.a.push({a:c,b:a.b,c:a.c,d:a.d,f:a.f,label:a.g})
-						loadChild(a.h,c)
-					})
+					document.body.appendChild(m.log);
+					(a=>{a.c(a)})({a:JSON.parse(a.target.result),b:document.body,c:a=>{a.a.forEach(b=>{
+						const c = el({a:b.a, b:a.b, d:{...b.b,style:b.c||'', draggable:true,'data-dynamic-app-idx':m.a.length}, e:{click:m.b[13] ,drop:b.f?m.b[12]:()=>{}, dragstart:a=>{m.b[3]=a.target}}})
+						b.d[0]&&(c[b.d[0]]=b.d[1])
+						m.a.push({a:c,b:b.b,c:b.c,d:b.d,f:b.f,label:b.g})
+						a.c({a:b.h,b:c,c:a.c})
+					})}})
 					window.parent.postMessage(JSON.stringify({a:3, b:a.target.result}))
 				}
 				b.readAsText(a.target.files[0])
@@ -166,7 +152,7 @@ var b=`<!DOCTYPE html><html><head>
 <script src="https://miftahul001.github.io/m/m.js"></script>
 <script>
 const m={}
-addEventListener('load',()=>{((a,b,c)=>{b(a,b,c)})(document.body,(a,b,c)=>{c.forEach(c=>{const d=el({a:c.a,b:a,d:{...c.b,style:c.c||''}});c.d[0]&&(d[c.d[0]]=c.d[1]);b(d,b,c.h)})},${a})})
+addEventListener('load',()=>{(a=>{a.a(a)})({a:a=>{a.c.forEach(b=>{const c=el({a:b.a,b:a.b,d:{...b.b,style:b.c||''}});b.d[0]&&(c[b.d[0]]=b.d[1]);a.a({a:a.a,b:c,c:b.h})})},b:document.body,c:${a}})})
 </script>
 </head><body></body></html>`
 		el({a:'a',b:document.body,d:{download:'m.html',href:URL.createObjectURL(new Blob([b], {type:'text/HTML'}))},e:{click:a=>{document.body.removeChild(a.target)}}}).click()
