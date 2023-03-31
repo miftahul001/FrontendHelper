@@ -3,7 +3,8 @@ const m={
 	a:[{a:el({a:'div',b:el({a:'div',b:el({a:'div',b:el({a:'div',d:{style:'padding-left:3px;','data-dynamic-app-idx':'0'}})}).parentElement}).parentElement}).parentElement}],
 	b:[,,,,,,,,,
 		a=>{
-			a=[a[0],0,el({a:'div',d:{style:`background:rgba(255,255,255,.5);border-radius:5px;box-shadow:0 0 7px 2px rgba(0,0,0,.1);position:fixed;top:${a[1]}px;left:${a[2]}px;padding:5px;`},e:{click:b=>{b.stopPropagation();document.body.lastElementChild!=a[2]&&(document.body.appendChild(a[2]))}}}),
+			//a=[a[0],0,el({a:'div',d:{style:`background:rgba(255,255,255,.5);border-radius:5px;box-shadow:0 0 7px 2px rgba(0,0,0,.1);position:fixed;top:${a[1]}px;left:${a[2]}px;padding:5px;`},e:{click:b=>{b.stopPropagation();document.body.lastElementChild!=a[2]&&(document.body.appendChild(a[2]))}}}),
+			a=[a[0],0,el({a:'div',d:{style:`background:rgba(255,255,255,.5);border-radius:5px;box-shadow:inset 1px 1px 5px rgba(0,0,0,.3), inset -1px -1px 5px rgba(0,0,0,.3);position:fixed;top:${a[1]}px;left:${a[2]}px;padding:5px;`},e:{click:b=>{b.stopPropagation();document.body.lastElementChild!=a[2]&&(document.body.appendChild(a[2]))}}}),
 			b=>{
 				b=b||window.event
 				b.stopPropagation()
@@ -23,7 +24,8 @@ const m={
 				document.removeEventListener('mouseup', a[4]);
 				document.removeEventListener('mousemove', a[3]);
 			}]
-			el({a:'div',b:a[2],c:a[0],d:{style:'padding:3px 33px;background:rgba(0,0,0,.8);border-radius:5px;color:rgba(255,255,255,.9);cursor:grab;font-weight:bold;text-align:center;'},e:{mousedown:b=>{
+			//el({a:'div',b:a[2],c:a[0],d:{style:'padding:3px 33px;background:rgba(0,0,0,.8);border-radius:5px;color:rgba(255,255,255,.9);cursor:grab;font-weight:bold;text-align:center;'},e:{mousedown:b=>{
+			el({a:'div',b:a[2],c:a[0],d:{style:'padding:3px 33px;background:rgba(5,20,10,.7);box-shadow:inset 3px 3px 5px rgba(255,255,255,.7), inset -3px -3px 5px rgba(0,0,0,.7);border-radius:5px;color:rgba(255,255,255,.9);cursor:grab;font-weight:bold;text-align:center;'},e:{mousedown:b=>{
 				b=b||window.event
 				b.stopPropagation()
 				b.preventDefault()
