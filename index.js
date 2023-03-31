@@ -238,12 +238,13 @@ const m={
 	})();
 	
 	(()=>{
-		const a=el({a:'div',b:m.b[9](['component',16,window.innerWidth-730]),d:{style:'display:grid;grid-template-columns:auto auto auto;gap:5px;'}})
+		const a=el({a:'div',b:m.b[9](['component',16,window.innerWidth-730]),d:{style:'display:flex;flex-wrap:wrap;justify-content:space-around;gap:5px;'}})
 		Object.keys(m.d).forEach(b=>{
 			el({a:'div',b:a,c:b,d:{style:'padding:5px 7px;border:1px solid #ccc;cursor:default;',draggable:true,'data-dynamic-app-a':JSON.stringify({label:b,...m.d[b]})}, e:{dragstart:m.b[16]}})
 		})
 		m.g={a:a.parentElement.parentElement}
 		document.body.appendChild(m.g.a)
+		a.parentElement.style.width='180px'
 	})();
 	
 	(()=>{
