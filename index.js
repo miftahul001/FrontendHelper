@@ -165,20 +165,29 @@ const m={
 			}}}).parentElement,c:a.label,d:{style:'min-width:11px;padding:1px 5px;border-radius:5px;',draggable:true},e:{dblclick:a=>{a.target.contentEditable=true},blur:a=>{a.target.contentEditable=false},input:m.b[11],click:m.b[10],dragstart:a=>{a.stopPropagation();m.b[1]=a.target.parentElement},dragover:a=>{a.preventDefault();a.stopPropagation()},drop:m.b[15],contextmenu:m.b[18]}}).parentElement,d:{style:'grid-column:2/span 1;'}}).parentElement}) },
 		a=>{ m.a[a.b].a.children[2].appendChild(m.a[a.c].a) },
 		a=>{
-			const loadChild=(a,b)=>{
-				a.forEach(a=>{
-					const c=el({a:'div',b:el({a:'div',b:el({a:'div',b:el({a:'div',b:b.children[2],d:{'data-dynamic-app-idx':m.a.length,style:'display:grid;grid-template-columns:7px auto;gap:1px 5px;'}}),c:"\u25B8"}).parentElement,c:a.g,d:{style:'min-width:11px;padding:1px 5px;border-radius:5px;',draggable:true},e:{dblclick:a=>{a.target.contentEditable=true},blur:a=>{a.target.contentEditable=false},input:m.b[11],click:m.b[10],dragstart:a=>{m.b[1]=a.target.parentElement},dragover:a=>{a.preventDefault();a.stopPropagation()},drop:m.b[15]}}).parentElement,d:{style:'grid-column:2/span 1;'}}).parentElement
-					m.a.push({a:c})
-					loadChild(a.h,c)
-				})
-			}
 			m.a[0].a.children[2].innerHTML=''
-			m.a=[m.a[0]]
-			JSON.parse(a.b).forEach(a=>{
-				const c=el({a:'div',b:el({a:'div',b:el({a:'div',b:el({a:'div',b:m.a[0].a.children[2],d:{'data-dynamic-app-idx':m.a.length,style:'display:grid;grid-template-columns:7px auto;gap:1px 5px;'}}),c:"\u25B8"}).parentElement,c:a.g,d:{style:'min-width:11px;padding:1px 5px;border-radius:5px;',draggable:true},e:{dblclick:a=>{a.target.contentEditable=true},blur:a=>{a.target.contentEditable=false},input:m.b[11],click:m.b[10],dragstart:a=>{m.b[1]=a.target.parentElement},dragover:a=>{a.preventDefault();a.stopPropagation()},drop:m.b[15]}}).parentElement,d:{style:'grid-column:2/span 1;'}}).parentElement
-				m.a.push({a:c})
-				loadChild(a.h,c)
-			})
+			m.a=[m.a[0]];
+			(a=>{a.a(a)})({a:a=>{
+				a.c.forEach(b=>{
+					const c=el({a:'div',b:el({a:'div',b:el({a:'div',b:el({a:'div',b:a.b.children[2],d:{'data-dynamic-app-idx':m.a.length,style:'display:grid;grid-template-columns:7px auto;gap:1px 5px;'}}),c:"\u25BE",e:{click:a=>{a.stopPropagation();
+						if (a.target.textContent=="\u25BE") {
+							a.target.textContent="\u25B8"
+							a.target.nextElementSibling.nextElementSibling.style.display='none'
+						} else {
+							a.target.textContent="\u25BE"
+							a.target.nextElementSibling.nextElementSibling.style.display='block'
+						}
+						if (m.a[m.b[0]].a==a.target.parentElement) return
+						m.b[0]>0&&(m.a[m.b[0]].a.children[1].style.background='rgba(0,0,0,0)')
+						m.b[0]=a.target.parentElement.getAttribute('data-dynamic-app-idx')
+						m.a[m.b[0]].a.children[1].style.background='#87CEFA'
+						m.c[10]({a:0,b:m.b[0]})
+					}}}).parentElement,c:b.g,d:{style:'min-width:11px;padding:1px 5px;border-radius:5px;',draggable:true},e:{dblclick:a=>{a.target.contentEditable=true},blur:a=>{a.target.contentEditable=false},input:m.b[11],click:m.b[10],dragstart:a=>{a.stopPropagation();m.b[1]=a.target.parentElement},dragover:a=>{a.preventDefault();a.stopPropagation()},drop:m.b[15],contextmenu:m.b[18]}}).parentElement,d:{style:'grid-column:2/span 1;'}}).parentElement
+					
+					m.a.push({a:c})
+					a.a({a:a.a,b:c,c:b.h})
+				})
+			},b:m.a[0].a,c:JSON.parse(a.b)})
 		},
 		a=>{ const b=JSON.parse(a.data);m.c[b.a](b) },
 		a=>{
