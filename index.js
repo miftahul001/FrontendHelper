@@ -23,7 +23,7 @@ const m={
 				document.removeEventListener('mouseup', a[4]);
 				document.removeEventListener('mousemove', a[3]);
 			}]
-			el({a:'div',b:a[2],c:a[0],d:{style:'padding:3px;background:rgba(5,20,10,.7);box-shadow:inset 3px 3px 5px rgba(255,255,255,.7), inset -3px -3px 5px rgba(0,0,0,.7);border-radius:5px;color:rgba(255,255,255,.9);cursor:grab;font-weight:bold;text-align:center;'},e:{mousedown:b=>{
+			el({a:'div',b:a[2],c:a[0],d:{style:'padding:3px 33px;background:rgba(5,20,10,.7);box-shadow:inset 3px 3px 5px rgba(255,255,255,.7), inset -3px -3px 5px rgba(0,0,0,.7);border-radius:5px;color:rgba(255,255,255,.9);cursor:grab;font-weight:bold;text-align:center;'},e:{mousedown:b=>{
 				b=b||window.event
 				b.stopPropagation()
 				b.preventDefault()
